@@ -31,7 +31,7 @@ secretary/   秘書AIの役割定義
 md/          部長AIの役割・検収基準・判断のしきい値
 workers/     部下AIのテンプレート
 tasks/       タスクをMarkdownファイルで管理する（正本）
-docs/        図・設計メモ
+docs/        図・設計メモ（design-notes.md：補足と未解決の論点）
 ```
 
 ## このOSと「インスタンス」の分け方 / Framework vs. instance
