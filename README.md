@@ -30,7 +30,7 @@
 ```text
 secretary/   秘書AIの役割定義
 md/          部長AIの役割・検収基準・判断のしきい値
-workers/     部下AIのテンプレート
+workers/     部下AIのテンプレート、着任と引き継ぎの手順
 tasks/       タスクをMarkdownファイルで管理する（タスクの正本、一次資料へのリンクつき）
 docs/        図・設計メモ（design-notes.md：補足と未解決の論点）
 ```
