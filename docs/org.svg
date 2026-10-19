@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2220" viewBox="0 0 2000 2220">
+  <!-- Source of org.png. Edit this file, then re-export org.png at 2000x2220 (e.g. a headless-browser screenshot of this SVG). -->
+  <defs>
+    <style>
+      text { font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "IPAPGothic", sans-serif; fill: #1F2937; }
+      .c { text-anchor: middle; }
+      .b { font-weight: 700; }
+      .muted { fill: #6B7280; }
+    </style>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/>
+    </marker>
+    <marker id="ahO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C2410C"/>
+    </marker>
+    <marker id="ahP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="ahL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A78BFA"/>
+    </marker>
+  </defs>
+
+  <rect width="2000" height="2220" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="80" y="125" font-size="76" class="b">ai-company-os</text>
+  <text x="80" y="198" font-size="38" class="muted">人がいなくても回る組織のためのOS</text>
+
+  <!-- Outside -->
+  <rect x="80" y="280" width="1280" height="220" rx="26" fill="#EEF1F6" stroke="#CBD3DE" stroke-width="3"/>
+  <text x="720" y="372" font-size="46" class="c b">社会・利用者・コミュニティ</text>
+  <text x="720" y="442" font-size="30" class="c muted">成果の価値を決めるのは「外」</text>
+
+  <line x1="580" y1="590" x2="580" y2="512" stroke="#6B7280" stroke-width="6" marker-end="url(#ah)"/>
+  <text x="560" y="562" font-size="27" class="muted" text-anchor="end">成果物を届ける</text>
+  <line x1="860" y1="510" x2="860" y2="588" stroke="#6B7280" stroke-width="6" marker-end="url(#ah)"/>
+  <text x="880" y="562" font-size="27" class="muted">評価・依頼が返る</text>
+
+  <!-- Secretary -->
+  <rect x="360" y="600" width="720" height="200" rx="30" fill="#E9FBF4" stroke="#0F766E" stroke-width="6"/>
+  <text x="720" y="684" font-size="48" class="c b" style="fill:#0F766E">秘書AI（Secretary）</text>
+  <text x="720" y="752" font-size="31" class="c muted">外との窓口・受付・振り分け</text>
+
+  <line x1="720" y1="812" x2="720" y2="888" stroke="#6B7280" stroke-width="6" marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+  <!-- MD -->
+  <rect x="220" y="900" width="1000" height="345" rx="38" fill="#FFF3EC" stroke="#C2410C" stroke-width="6"/>
+  <text x="720" y="992" font-size="60" class="c b" style="fill:#9A3412">部長AI（MD）</text>
+  <text x="720" y="1060" font-size="32" class="c">ずっと残る：記憶・検収基準・判断のしきい値・教育</text>
+  <rect x="268" y="1120" width="200" height="72" rx="36" fill="#DCFCE7"/>
+  <text x="368" y="1167" font-size="30" class="c" style="fill:#166534">ACCEPT</text>
+  <rect x="498" y="1120" width="200" height="72" rx="36" fill="#FEF9C3"/>
+  <text x="598" y="1167" font-size="30" class="c" style="fill:#854D0E">WARN</text>
+  <rect x="726" y="1120" width="220" height="72" rx="36" fill="#EDE9FE"/>
+  <text x="836" y="1167" font-size="30" class="c" style="fill:#6D28D9">人間へ上申</text>
+  <rect x="974" y="1120" width="200" height="72" rx="36" fill="#FEE2E2"/>
+  <text x="1074" y="1167" font-size="30" class="c" style="fill:#991B1B">BLOCK</text>
+
+  <!-- Workers -->
+  <line x1="720" y1="1245" x2="720" y2="1335" stroke="#6B7280" stroke-width="5"/>
+  <line x1="240" y1="1335" x2="1200" y2="1335" stroke="#6B7280" stroke-width="5"/>
+  <g stroke="#6B7280" stroke-width="5">
+    <line x1="240" y1="1335" x2="240" y2="1396" marker-end="url(#ah)"/>
+    <line x1="480" y1="1335" x2="480" y2="1396" marker-end="url(#ah)"/>
+    <line x1="720" y1="1335" x2="720" y2="1396" marker-end="url(#ah)"/>
+    <line x1="960" y1="1335" x2="960" y2="1396" marker-end="url(#ah)"/>
+  </g>
+  <line x1="1200" y1="1335" x2="1200" y2="1396" stroke="#C0C4CC" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#ah)"/>
+
+  <g stroke="#374151" stroke-width="4" stroke-dasharray="14 10" fill="#F8FAFC">
+    <rect x="140" y="1405" width="200" height="170" rx="22"/>
+    <rect x="380" y="1405" width="200" height="170" rx="22"/>
+    <rect x="620" y="1405" width="200" height="170" rx="22"/>
+  </g>
+  <text x="240" y="1482" font-size="36" class="c b">案件 A</text>
+  <text x="240" y="1535" font-size="26" class="c muted">部下AI</text>
+  <text x="480" y="1482" font-size="36" class="c b">案件 B</text>
+  <text x="480" y="1535" font-size="26" class="c muted">部下AI</text>
+  <text x="720" y="1482" font-size="36" class="c b">案件 C</text>
+  <text x="720" y="1535" font-size="26" class="c muted">部下AI</text>
+
+  <rect x="860" y="1405" width="200" height="170" rx="22" fill="#F8FAFC" stroke="#374151" stroke-width="5"/>
+  <text x="960" y="1482" font-size="36" class="c b">定型業務</text>
+  <text x="960" y="1535" font-size="26" class="c muted">部下AI（継続）</text>
+
+  <rect x="1100" y="1405" width="200" height="170" rx="22" fill="#FBFBFC" stroke="#C0C4CC" stroke-width="4" stroke-dasharray="14 10"/>
+  <text x="1200" y="1482" font-size="36" class="c" style="fill:#A3A8B0">完了</text>
+  <text x="1200" y="1535" font-size="26" class="c" style="fill:#B4B8BF">→ 消える</text>
+
+  <text x="720" y="1628" font-size="29" class="c muted">部下AI：横並びで、無限に並べられる</text>
+  <text x="720" y="1672" font-size="29" class="c muted">点線＝一度きりの仕事（終われば消える）　実線＝繰り返しの仕事（雇い続ける）</text>
+
+  <line x1="720" y1="1695" x2="720" y2="1770" stroke="#6B7280" stroke-width="6" marker-end="url(#ah)"/>
+  <text x="745" y="1745" font-size="27" class="muted">学びを書き残す（消える前に・交代に備えて）</text>
+
+  <!-- Records -->
+  <path d="M280,1810 L280,1965 A440,40 0 0 0 1160,1965 L1160,1810" fill="#F1F4F8" stroke="#2D3748" stroke-width="5"/>
+  <ellipse cx="720" cy="1810" rx="440" ry="40" fill="#E2E8F0" stroke="#2D3748" stroke-width="5"/>
+  <text x="720" y="1905" font-size="44" class="c b">記録リポジトリ　tasks/*.md</text>
+  <text x="720" y="1960" font-size="29" class="c muted">タスクも学びもファイルで残る（正本）</text>
+
+  <!-- MD reads/writes records -->
+  <path d="M212,1072 L80,1072 L80,1890 L272,1890" fill="none" stroke="#C2410C" stroke-width="4" marker-start="url(#ahO)" marker-end="url(#ahO)"/>
+  <text transform="translate(58,1480) rotate(-90)" font-size="27" class="c" style="fill:#C2410C">部長が読み書きする</text>
+
+  <!-- Human role column -->
+  <text x="1680" y="318" font-size="36" class="c b" style="fill:#6D28D9">人間の役割は</text>
+  <text x="1680" y="368" font-size="36" class="c b" style="fill:#6D28D9">段階的に小さくなる</text>
+
+  <rect x="1450" y="420" width="460" height="260" rx="28" fill="#F5F3FF" stroke="#7C3AED" stroke-width="5"/>
+  <text x="1680" y="497" font-size="44" class="c b" style="fill:#6D28D9">① CEO</text>
+  <text x="1680" y="560" font-size="29" class="c">重要な判断を承認する</text>
+  <text x="1680" y="618" font-size="27" class="c muted">（現在）</text>
+  <line x1="1680" y1="690" x2="1680" y2="768" stroke="#7C3AED" stroke-width="5" marker-end="url(#ahP)"/>
+
+  <rect x="1450" y="780" width="460" height="260" rx="28" fill="#F5F3FF" stroke="#A78BFA" stroke-width="5"/>
+  <text x="1680" y="857" font-size="44" class="c b" style="fill:#7C3AED">② Owner</text>
+  <text x="1680" y="920" font-size="29" class="c">憲法としきい値を定め</text>
+  <text x="1680" y="972" font-size="29" class="c">例外だけを見る</text>
+  <line x1="1680" y1="1050" x2="1680" y2="1128" stroke="#A78BFA" stroke-width="5" marker-end="url(#ahL)"/>
+
+  <rect x="1450" y="1140" width="460" height="260" rx="28" fill="#FAF8FF" stroke="#C4B5FD" stroke-width="5" stroke-dasharray="14 10"/>
+  <text x="1680" y="1217" font-size="44" class="c b" style="fill:#A78BFA">③ Auditor</text>
+  <text x="1680" y="1280" font-size="29" class="c" style="fill:#9CA3AF">定期報告を読むだけ</text>
+  <text x="1680" y="1332" font-size="29" class="c" style="fill:#9CA3AF">（理想：自律する組織）</text>
+  <line x1="1680" y1="1405" x2="1680" y2="1475" stroke="#1F2937" stroke-width="4" stroke-dasharray="6 8"/>
+
+  <rect x="1450" y="1480" width="460" height="190" rx="28" fill="#FFFFFF" stroke="#1F2937" stroke-width="5"/>
+  <text x="1680" y="1560" font-size="32" class="c b">最後まで残すもの</text>
+  <text x="1680" y="1620" font-size="29" class="c">緊急停止・法的な所有</text>
+
+  <!-- Supervision -->
+  <path d="M1440,550 L1320,550 L1320,1040 L1232,1040" fill="none" stroke="#7C3AED" stroke-width="4" stroke-dasharray="12 10" marker-end="url(#ahP)"/>
+  <text transform="translate(1348,800) rotate(90)" font-size="27" class="c" style="fill:#6D28D9">監督（例外のみ）</text>
+
+  <!-- Banner -->
+  <rect x="80" y="2045" width="1840" height="120" rx="32" fill="#FFF5EC"/>
+  <text x="1000" y="2117" font-size="36" class="c b" style="fill:#C2410C">外で成果が認められるほど、組織の自律の範囲が広がる（信頼の調整）</text>
+</svg>
