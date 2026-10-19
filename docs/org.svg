@@ -98,7 +98,7 @@
   <path d="M280,1810 L280,1965 A440,40 0 0 0 1160,1965 L1160,1810" fill="#F1F4F8" stroke="#2D3748" stroke-width="5"/>
   <ellipse cx="720" cy="1810" rx="440" ry="40" fill="#E2E8F0" stroke="#2D3748" stroke-width="5"/>
   <text x="720" y="1905" font-size="44" class="c b">記録リポジトリ　tasks/*.md</text>
-  <text x="720" y="1960" font-size="29" class="c muted">タスクも学びもファイルで残る（正本）</text>
+  <text x="720" y="1960" font-size="29" class="c muted">タスクの正本と学びの要約（一次資料へのリンクつき）</text>
 
   <!-- MD reads/writes records -->
   <path d="M212,1072 L80,1072 L80,1890 L272,1890" fill="none" stroke="#C2410C" stroke-width="4" marker-start="url(#ahO)" marker-end="url(#ahO)"/>
