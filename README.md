@@ -20,7 +20,7 @@
 | カーネル / kernel | 部長AI（MD）：記憶・検収基準・判断のしきい値 |
 | プロセス / process | 使い捨ての部下AI（worker）：案件ごとに起動し、終われば消える |
 | デーモン / daemon | 継続雇用の部下AI：繰り返し発生する種類の仕事を担い続ける |
-| ファイルシステム / filesystem | `tasks/*.md`：タスクと学びの正本 |
+| ファイルシステム / filesystem | `tasks/*.md`：タスクの正本。学びは要約なので、一次資料へのリンクと一緒に残す |
 | シェル・入出力 / shell, I/O | 秘書AI（secretary）：外との窓口 |
 | 権限 / permissions | しきい値：ACCEPT / WARN / ESCALATE / BLOCK |
 | アプリ / apps | 各プロジェクト |
@@ -31,7 +31,7 @@
 secretary/   秘書AIの役割定義
 md/          部長AIの役割・検収基準・判断のしきい値
 workers/     部下AIのテンプレート
-tasks/       タスクをMarkdownファイルで管理する（正本）
+tasks/       タスクをMarkdownファイルで管理する（タスクの正本、一次資料へのリンクつき）
 docs/        図・設計メモ（design-notes.md：補足と未解決の論点）
 ```
 
