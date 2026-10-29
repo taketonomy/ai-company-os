@@ -53,6 +53,16 @@ This repository is **the OS itself**: a framework anyone can use. To run an orga
 - When in doubt, keep it in the instance repository. You can publish it later, but publication cannot be undone.
 - Generalize improvements discovered while running an instance by removing instance-specific information, then contribute them back to this repository through a PR.
 
+## Open design questions
+
+Architectural feedback is welcome on these unresolved questions:
+
+- **In-process or distributed?** What conditions would justify moving from in-process orchestration to distributed agents or agent-to-agent (A2A) communication?
+- **Framework or runtime?** Which business state and approval policies belong in ai-company-os, and which should be handled by the underlying agent runtime or platform?
+- **Evaluating handoffs:** How can handoffs be evaluated to ensure that intended outcomes, acceptance criteria, and supporting evidence are preserved?
+
+See the [design notes](docs/design-notes.md) for context on acceptance cycles, primary-source records, and worker onboarding.
+
 ## Status
 
 Early concept. It will be piloted on one project first, then expanded to others if it works well.
