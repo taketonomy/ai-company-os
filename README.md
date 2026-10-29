@@ -1,57 +1,58 @@
 # ai-company-os
 
-[日本語](README.md) | [English](README.en.md)
+[English](README.md) | [日本語](README.ja.md)
 
-**人がいなくても回る組織のためのOS**
-*An OS for an organization that keeps doing useful work without people.*
+**An OS for an organization that keeps doing useful work without people.**
 
-![ai-company-os の組織図](docs/org.png)
+![ai-company-os organization diagram](docs/org.png)
 
-## 考え方 / The idea
+*The diagram labels are in Japanese.*
 
-- **価値を決めるのは外。** 仕事は、社会・利用者・コミュニティの役に立って初めて成立する。
-- **設計の順番：** 成果 → 検収 → 成果物を作る人（エージェント）。
-- **各層は1つだけ：** 秘書AI 1つ、部長AI 1つ。部長は増やさない。
-- **部下は横並び。** 一度きりの仕事の部下は終われば消え、学びは消える前に記録へ書き残す。繰り返し発生する種類の仕事には、同じ部下を雇い続けてよい（[`workers/README.md`](workers/README.md)）。
-- **人間の役割は段階的に小さくする：** CEO → Owner → Auditor。緊急停止と法的な所有は最後まで人間に残す。
+## The idea
 
-## OSとしての対応 / Mapping
+- **Value is determined outside the organization.** Work only counts when it benefits society, users, or communities.
+- **Design in this order:** Outcomes → acceptance criteria → the people (agents) who create the deliverables.
+- **Just one at each layer:** One secretary AI and one Managing Director AI (MD). Do not add more MDs.
+- **Workers are peers.** Workers assigned to one-off tasks finish their assignments when the work is done, recording what they have learned before their assignments end. For recurring categories of work, the same worker may be retained ([`workers/README.md`](workers/README.md)).
+- **Gradually reduce the human role:** CEO → Owner → Auditor. Emergency-stop authority and legal ownership remain with humans throughout.
+
+## OS mapping
 
 | OS | ai-company-os |
 |---|---|
-| カーネル / kernel | 部長AI（MD）：記憶・検収基準・判断のしきい値 |
-| プロセス / process | 案件担当のAI（worker）：案件ごとに起動し、完了後は役目を終える |
-| デーモン / daemon | 継続雇用の部下AI：繰り返し発生する種類の仕事を担い続ける |
-| ファイルシステム / filesystem | `tasks/*.md`：タスクの正本。学びは要約なので、一次資料へのリンクと一緒に残す |
-| シェル・入出力 / shell, I/O | 秘書AI（secretary）：外との窓口 |
-| 権限 / permissions | しきい値：ACCEPT / WARN / ESCALATE / BLOCK |
-| アプリ / apps | 各プロジェクト |
+| Kernel | Managing Director AI (MD): memory, acceptance criteria, and decision thresholds |
+| Process | Task-assigned AI (worker): starts for each task and finishes its assignment upon completion |
+| Daemon | Retained worker AI: continues handling recurring categories of work |
+| Filesystem | `tasks/*.md`: the canonical task records. Lessons learned are summaries, so retain them alongside links to primary sources |
+| Shell, I/O | Secretary AI (secretary): the interface to the outside world |
+| Permissions | Thresholds: ACCEPT / WARN / ESCALATE / BLOCK |
+| Apps | Individual projects |
 
-## 構成 / Layout
+## Layout
 
 ```text
-secretary/   秘書AIの役割定義
-md/          部長AIの役割・検収基準・判断のしきい値
-workers/     部下AIのテンプレート、着任と引き継ぎの手順
-tasks/       タスクをMarkdownファイルで管理する（タスクの正本、一次資料へのリンクつき）
-docs/        図・設計メモ（design-notes.md：補足と未解決の論点）
+secretary/   Secretary AI role definition
+md/          Managing Director AI role, acceptance criteria, and decision thresholds
+workers/     Worker AI templates, onboarding, and handover procedures
+tasks/       Tasks managed as Markdown files (canonical task records with links to primary sources)
+docs/        Diagrams and design notes (design-notes.md: additional context and open questions)
 ```
 
-## このOSと「インスタンス」の分け方 / Framework vs. instance
+## Framework vs. instance
 
-このリポジトリは **OSそのもの**（誰でも使える枠組み）です。実際に組織を動かすときは、利用者ごとに **非公開のインスタンス用リポジトリ** を別に用意し、部長AIの記憶・実際のタスク・プロジェクトの記録はそちらに置きます。
-*This repository is the framework. Each organization that runs on it keeps its own private instance repository for the MD's memory, real tasks and project records.*
+This repository is **the OS itself**: a framework anyone can use. To run an organization, each user sets up a separate **private instance repository** for the MD's memory, real tasks, and project records.
 
-**判断基準は一つ：** 特定の利用者やプロジェクトを知らない人が、そのまま使えるか？
-- 使える → このリポジトリ（役割の定義、テンプレート、しきい値の枠組み、運用ルール）
-- 使えない → インスタンス用リポジトリ（記憶、実際のタスク、具体的なしきい値、人名・案件名）
+**Use one criterion:** Can someone use this as-is without knowing the specific user or project?
 
-**ルール / Rules**
-- このリポジトリには、個人名・案件名・記憶・認証情報など、特定のインスタンスに固有の情報を書かない。
-- 迷ったらインスタンス側に置く。公開はあとからでもできるが、取り消せない。
-- インスタンスの運用で見つけた改善は、固有の情報を除いて一般化し、PRでこのリポジトリに戻す。
+- Yes → This repository (role definitions, templates, the threshold framework, and operating rules)
+- No → The instance repository (memory, real tasks, specific thresholds, people's names, and project names)
 
-## 状態 / Status
+**Rules**
 
-構想段階です。まず1つのプロジェクトで試し、うまくいけば他へ広げます。
-*Early concept. It will be piloted on one project first.*
+- Do not put instance-specific information in this repository, including people's names, project names, memory, or credentials.
+- When in doubt, keep it in the instance repository. You can publish it later, but publication cannot be undone.
+- Generalize improvements discovered while running an instance by removing instance-specific information, then contribute them back to this repository through a PR.
+
+## Status
+
+Early concept. It will be piloted on one project first, then expanded to others if it works well.

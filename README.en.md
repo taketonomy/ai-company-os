@@ -1,6 +1,6 @@
 # ai-company-os
 
-[日本語](README.md) | [English](README.en.md)
+[English](README.md) | [日本語](README.ja.md)
 
 **An OS for an organization that keeps doing useful work without people.**
 
