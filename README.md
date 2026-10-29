@@ -1,5 +1,7 @@
 # ai-company-os
 
+[日本語](README.md) | [English](README.en.md)
+
 **人がいなくても回る組織のためのOS**
 *An OS for an organization that keeps doing useful work without people.*
 
