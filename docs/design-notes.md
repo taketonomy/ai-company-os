@@ -1,81 +1,81 @@
-# 設計メモ / Design notes
+# Design notes
 
-組織図（[`org.png`](org.png)）を実際に読み解く中で出てきた、設計上の補足と未解決の論点。
-*Refinements and open questions that came up while walking through the org chart.*
+[English](design-notes.md) | [日本語](design-notes.ja.md)
 
-## 外との唯一の窓口は秘書 / The secretary is the sole external contact
+Refinements and open questions that came up while walking through the [organization chart](org.png).
 
-- 社会・利用者・コミュニティ、そして人間との窓口は秘書AIだけ。部長AIは内部で中身を理解・判断し、外への質問・報告・成果物は秘書を通じて届ける。
-- 秘書の成果・検収基準・責任の範囲・入出力は [`../secretary/README.md`](../secretary/README.md)。
-- 部下AIは外に出ない。案件ごとに 1〜N 体。案件の数も、案件の中の部下の数も、上限はない。
-- **未設計：** 外にいる実際の人（例：成果を受け取る生産者）が、作業の途中でどう関わるか。
+## The secretary is the sole external contact
 
-## チェンジリクエストはループする / Change requests loop
+- The secretary AI is the only point of contact for society, users, communities, and humans. The Managing Director AI (MD) understands the substance and makes decisions internally; questions, reports, and deliverables for the outside world go through the secretary.
+- The secretary's outcomes, acceptance criteria, responsibilities, inputs, and outputs are defined in [`../secretary/README.md`](../secretary/README.md).
+- Worker AIs do not interact with the outside world. Each project has 1–N workers. There is no upper limit on either the number of projects or the number of workers within a project.
+- **Not yet designed:** How actual people outside the organization (for example, a producer receiving the results) participate while work is in progress.
 
-- 「上から下へ依頼し、下から上へ成果を返す」は1回では終わらない。何度も回る。
-- 成果物を返している途中で、外からの依頼が変わるのがほぼ前提になる。最初の依頼はそれだけ粗い。
-- **未設計：** 外がどれぐらいの頻度で、どの粒度の内容を秘書に伝えるか。人間どうしでも一番難しいところ。
+## Change requests loop
 
-## 秘書は中身に関わらない / The secretary does not handle content
+- Sending a request down and returning results up is not a one-time exchange. It happens repeatedly.
+- Changes to external requests while deliverables are being returned are almost a given: the initial request is that rough.
+- **Not yet designed:** How often, and at what level of detail, the outside party communicates with the secretary. This is among the hardest parts even between humans.
 
-- 秘書の仕事は、受付・振り分け・日程の調整・取り次ぎ（例：「部長はいま手が離せない」）。
-- 仕事の中身についての質問も秘書が受け付け、部長へ渡す。部長が作った回答を秘書が相手へ届ける。秘書は内容を独自に判断・変更しない。
-- 雑談などの会話から中身の要件を抽出する場合は、会話の外の別工程で行い、部長が検収する。
-- 秘書は外へ話す・書く際に、AIによる応対・機械生成の内容であることを明示する。記録の扱いや送信の承認などの具体的な設定はインスタンスが定め、[判断のしきい値](../md/thresholds.md)に従う。
+## The secretary does not handle content
 
-## 部長の検収サイクル / The MD's acceptance cycle
+- The secretary handles intake, routing, scheduling, and relaying messages (for example, “The MD is unavailable right now”).
+- The secretary also receives questions about the substance of the work and passes them to the MD. The secretary delivers the MD's answer to the other party, without independently judging or changing its content.
+- If substantive requirements are extracted from casual conversation or other dialogue, this happens in a separate step outside the conversation, and the MD checks the result against the acceptance criteria.
+- When speaking or writing externally, the secretary explicitly identifies the interaction as AI-mediated and the content as machine-generated. Each instance sets details such as how records are handled and how sending is approved, following the [decision thresholds](../md/thresholds.md).
 
-部長は検収基準を持ち、部下の成果物の品質に責任を持って上へ返す。作業の進め方の一例：
+## The MD's acceptance cycle
 
-1. 目次（全体の構成）は、議論しながら部長側で書く。各章がフェーズに対応する。
-2. 各章の中身を詰める作業を、部下に1章ずつ渡す。
-3. 返ってきた章を部下と検討し、検収してから次の章に進ませる。
+The MD holds the acceptance criteria and takes responsibility for the quality of workers' deliverables before passing them upward. One example workflow:
 
-この検収をまだ人間が担っている場合、そこに部長AIを置くと、この組織図と同じ形になる。
+1. The MD develops the table of contents (the overall structure) through discussion. Each chapter corresponds to a phase.
+2. The work of developing each chapter's content is assigned to a worker, one chapter at a time.
+3. The MD reviews the returned chapter with the worker and accepts it before allowing work to proceed to the next chapter.
 
-## 人間による監督が右側にある理由と、なくしたい理由 / Why human supervision exists, and why to remove it
+If a human still performs this acceptance role, placing the MD AI in that role produces the arrangement shown in the organization chart.
 
-- 相撲部屋と相撲協会のたとえ：事業の公共性が高いほど、部長ひとりの判断に任せきりにするのは危うい。だから右側に人間の経営者を置く。
-- それでも目標は、監督を段階的になくすこと。部長が自ら監査し、外（社会）が成果を喜んでいる状態を目指す（[`../README.md`](../README.md) の CEO → Owner → Auditor）。
+## Why human supervision is on the right, and why we want to remove it
 
-## ハイブリッド：人間が席に入ってもよい / Hybrid: humans may take seats
+- Consider the analogy of a sumo stable and the sumo association: the more a business serves a public interest, the riskier it is to leave everything to the MD's judgment alone. That is why a human executive appears on the right of the chart.
+- Even so, the goal is to phase out supervision. The aim is for the MD to audit its own work while the outside world (society) welcomes the results (see CEO → Owner → Auditor in [`../README.md`](../README.md)).
 
-- 秘書は置いたまま、部長や部下の席に人間が入ってもよい。
-- 人によって入りたい理由は違う。誰かの役に立つことで自分の存在を確かめたい人、部長のように品質に責任を持ちたい人、指示どおりに動きたい人。
-- 「人がいなくても回る」からは少し離れるが、入りたい人を締め出す理由はない。
+## Hybrid: humans may take seats
 
-## 未解決：秘書と部長の間に人間を置く意味 / Open: a human between the secretary and the MD
+- With the secretary still in place, humans may occupy the MD or worker roles.
+- People have different reasons for wanting to participate: finding a sense of purpose by helping someone, taking responsibility for quality as the MD does, or working according to instructions.
+- This departs somewhat from “an organization that keeps doing useful work without people,” but there is no reason to exclude people who want to participate.
 
-検討したたとえ：
+## Open: a human between the secretary and the MD
 
-- **夫婦：** 秘書が外側の視点から「これは危なくないか」と部長に気づきを与える。
-- **大統領と報道官：** 第三者が、部長の判断と秘書を通じた発信が一貫しているかを確かめ、上にいる人たちに向けて解釈する。外の反応を見て、秘書と部長がそれぞれ振り返るきっかけにもなる。
+Analogies considered:
 
-まだ具体的なユースケースはない。見つかったら追記する。
+- **A married couple:** The secretary offers an outside perspective, prompting the MD to notice potential risks: “Could this be dangerous?”
+- **A president and a press secretary:** A third party checks that the MD's decisions and communications through the secretary are consistent, and interprets them for those above. Observing external reactions can also prompt both the secretary and the MD to reflect.
 
-## 記録は歪む：暗黙知と部下の着任 / Records distort: tacit knowledge and onboarding workers
+There is no concrete use case yet. One will be added when found.
 
-このOSは「部下は記憶を持ち越さない。持ち越すべきものは、すべて記録に残す」を前提にしている。しかし、書かれた記録には限界がある。
-*This OS assumes workers carry nothing over and everything worth keeping goes into records. Written records have limits.*
+## Records distort: tacit knowledge and onboarding workers
 
-- **書いた時点で歪む：** 言語化すると、後知恵や「うまくいった話」への整理が入る。実際の判断にあった迷いや複雑さより、書かれたもののほうが正しく見えてしまう（合格体験記のような記録になる）。タスクの記録、判断の記録、仕様、役割定義のどれも同じ。
-- **新しい部下は書かれたものしか読めない：** マニュアルだけで新人が仕事をこなせないのと同じで、記録を渡すだけでは足りない。部下を起動するたびに、実質的に新人教育が必要になる。
-- **暗黙知は無理に明文化すると価値を失う：** 本来は、経験を通じて身につくもの。
+This OS assumes that workers do not carry memory over, and that everything worth carrying forward is recorded. Written records, however, have limits.
 
-### 今の構成でできる対策 / Mitigations within the current design
+- **Distortion begins when something is written down:** Putting experience into words introduces hindsight and turns it into a tidy success story. The written account can appear more correct than the uncertainty and complexity of the actual decision, much like a retrospective account of passing an exam. This applies equally to task records, decision records, specifications, and role definitions.
+- **New workers can only read what was written:** Just as a new employee cannot do the job from a manual alone, handing over records is not enough. Each time a worker starts, it effectively needs onboarding and training.
+- **Forcing tacit knowledge into explicit form can destroy its value:** It is fundamentally something acquired through experience.
 
-1. **一次資料を残す：** 要約だけを正本にしない。タスクファイルから、元になった資料（会話の記録、ログ、差分、外からの依頼の原文）へリンクする。
-2. **判断の迷いも残す：** 判断の記録には、結論だけでなく、検討した代替案と、どれくらい確信があったかを書く。
-3. **着任確認：** 部長は部下を起動したら、作業に入る前に、目的・検収基準・前提を部下自身の言葉で説明させ、ずれを直してから作業を始めさせる。記録を渡すだけで終わらせない。
-4. **部長が教育係になる：** 部長は組織で唯一ずっと残る層なので、過去の経緯を知る「先輩」として部下を教える役も担う。
+### Mitigations within the current design
 
-### 決定：使い捨てと継続雇用の併用 / Decided: disposable and retained workers
+1. **Keep primary sources:** Do not make summaries alone the canonical record. Link task files to the original material: conversation records, logs, diffs, and the original wording of external requests.
+2. **Record uncertainty in decisions too:** Decision records should include not just conclusions, but the alternatives considered and the level of confidence.
+3. **Check understanding during onboarding:** After starting a worker, the MD asks it to explain the objective, acceptance criteria, and assumptions in its own words before beginning work. Any misunderstandings are corrected first. Simply handing over records is not enough.
+4. **The MD acts as the trainer:** As the organization's only continuously retained layer, the MD also teaches workers as an experienced colleague who knows the history.
 
-- 一度きりの仕事は使い捨ての部下、繰り返し発生する種類の仕事は継続雇用の部下に任せる。
-- 継続雇用の部下を交代させるときは、前任が後任を教える。人間の組織の引き継ぎに近い形にする。
-- 詳細と、継続雇用にする目安（繰り返し・前回の文脈・暗黙知・続く関係。独立性が必要な仕事は使い捨て）は [`../workers/README.md`](../workers/README.md) の「雇い方の決め方」。
+### Decided: combine task-assigned and retained workers
 
-### 未解決 / Open
+- Assign one-off work to workers whose assignments end when the work is complete; use retained workers for recurring categories of work.
+- When replacing a retained worker, the predecessor teaches the successor, in a process similar to a handover in a human organization.
+- For details and criteria for retaining workers—recurrence, prior context, tacit knowledge, and ongoing relationships—see “Choosing how to hire” in [`../workers/README.md`](../workers/README.md). Work that requires independence uses workers assigned only for that task.
 
-- **状態を持つモデル：** モデル自体が経験から学べる（重みが更新される）ようになれば、暗黙知を記録ではなく部下そのものに持たせられる。そのとき、部下の交代はより難しくなる。
-- **責任と継続性：** 失うものがない主体には責任が生まれにくい。部下や部長に継続的な同一性と実績があることは、しきい値を広げる（信頼の調整）根拠にもなりうる。しきい値側の扱いは [`../md/thresholds.md`](../md/thresholds.md) の「信頼の調整」。
+### Open
+
+- **Stateful models:** If models themselves can learn from experience through weight updates, tacit knowledge could reside in the workers themselves rather than in records. Replacing workers would then become more difficult.
+- **Responsibility and continuity:** Responsibility is harder to establish for an actor with nothing to lose. A worker or MD with a continuous identity and track record could also provide grounds for broadening its decision thresholds (adjusting trust). For how this is handled in the thresholds, see “Trust adjustment” in [`../md/thresholds.md`](../md/thresholds.md).
